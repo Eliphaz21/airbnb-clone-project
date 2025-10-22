@@ -348,5 +348,44 @@ Even in a simulated environment, this feature demonstrates secure transaction ha
 Includes JWT authentication, input validation, and access controls for sensitive endpoints.
 Ensures that only authorized users can perform actions such as editing listings or making bookings.
 This feature safeguards user data and maintains the integrity of the platform.
+---------------------------------------
+🔐 API Security
+
+Securing backend APIs is crucial to protect sensitive user data, maintain the integrity of bookings, and ensure that only authorized actions are performed. The StayBackend project implements multiple security measures to safeguard the system.
+
+🧑‍💻 Authentication
+
+JWT (JSON Web Tokens) is used to authenticate users securely.
+Each user receives a unique token after login, which must be included in API requests to access protected endpoints.
+Importance: Prevents unauthorized access to personal data and ensures that only valid users can perform actions such as booking properties or updating listings.
+
+🔑 Authorization
+
+Role-based access controls differentiate guests and hosts, limiting actions based on user roles.
+For example, only hosts can create or modify property listings, while guests can make bookings and leave reviews.
+Importance: Protects the system from misuse and ensures users can only perform actions permitted for their role.
+
+🛡️ Rate Limiting
+
+Limits the number of API requests a user or IP can make within a specific timeframe.
+Helps prevent brute-force attacks, spam, and excessive load on the server.
+Importance: Maintains server stability and reduces the risk of automated attacks.
+
+🔍 Input Validation
+
+All API inputs are validated using serializers to prevent invalid or malicious data from being stored in the database.
+Importance: Protects against injection attacks (e.g., SQL injection) and ensures data consistency.
+
+🧾 Secure Payment Handling
+
+While payment processing is simulated, endpoints for payment data are protected by authentication and authorization.
+Sensitive data, such as amounts and transaction statuses, are never exposed without proper verification.
+Importance: Safeguards user financial information and maintains trust in the booking system.
+
+🌐 CORS and HTTPS
+
+Cross-Origin Resource Sharing (CORS) policies restrict which domains can interact with the API.
+In production, HTTPS is used to encrypt all data in transit.
+Importance: Protects against unauthorized third-party access and ensures data integrity during transmission.
 
 
