@@ -306,22 +306,47 @@ Each Booking belongs to one User and one Property.
 A Property can receive multiple Reviews.
 
 Each Payment is tied to a single Booking.
-┌────────────┐          1 ──────── *           ┌────────────┐
-│   Users    │────────────────────────────────▶│ Properties │
-└────────────┘                                 └────────────┘
-      │ 1                                              │ 1
-      │                                                │
-      │ *                                              │ *
-      ▼                                                ▼
-┌────────────┐         1 ──────── *           ┌────────────┐
-│  Bookings  │────────────────────────────────▶│  Payments  │
-└────────────┘                                 └────────────┘
-      │
-      │  *
-      │
-      ▼
-┌────────────┐
-│  Reviews   │
-└────────────┘
+
+
+--------------------------------------------------
+🧩 Feature Breakdown
+
+The StayBackend project includes core features that simulate a real-world Airbnb platform. Each feature is designed to enhance usability, security, and functionality.
+
+👤 User Management
+
+Allows users to register, log in, and manage their profiles.
+Supports different roles such as guest and host, enabling access control and role-specific features throughout the application.
+This ensures that users interact with the system securely and according to their responsibilities.
+
+🏠 Property Management
+
+Hosts can create, update, and delete property listings, including details such as title, description, price, and location.
+Guests can browse available listings and view detailed information for each property.
+This feature forms the backbone of the platform, enabling users to list and find accommodations.
+
+📅 Booking System
+
+Allows guests to book available properties and manage reservations.
+Hosts can view bookings for their listings to track occupancy and availability.
+This feature handles critical workflows like date validation, booking conflicts, and reservation management.
+
+⭐ Review System
+
+Guests can submit reviews and ratings for properties they’ve stayed in.
+Hosts and other guests can view these reviews to assess property quality.
+This feature fosters trust and transparency, enhancing the overall user experience.
+
+💳 Payment System (Simulated)
+
+Handles payment tracking for each booking, including amount, status, and timestamp.
+Ensures that bookings are linked to a corresponding payment record.
+Even in a simulated environment, this feature demonstrates secure transaction handling in a real-world booking system.
+
+🔐 Security Features
+
+Includes JWT authentication, input validation, and access controls for sensitive endpoints.
+Ensures that only authorized users can perform actions such as editing listings or making bookings.
+This feature safeguards user data and maintains the integrity of the platform.
 
 
