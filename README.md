@@ -215,17 +215,113 @@ Ensures that all technical details are well-explained and easily understood.
 
 ---
 
-## 🗃️ Database Design (MySQL)
+🗃️ Database Design
 
-**Entities and Relationships**
+The database is designed to handle key Airbnb functionalities such as user management, property listings, booking operations, and payment tracking. Below are the main entities and their relationships.
 
-| Table | Description |
-|--------|--------------|
-| `users` | Stores user info (name, email, password, role) |
-| `listings` | Property details (title, location, price, host_id) |
-| `bookings` | Reservation info (listing_id, guest_id, check_in, check_out) |
-| `reviews` | Ratings and comments for listings |
-| `images` | URLs for listing photos |
+Entities and Fields
+🧑‍💻 Users
 
-**ERD Overview**
+id — Primary key, unique identifier for each user
+
+name — Full name of the user
+
+email — Unique email address for login and identification
+
+password — Encrypted password for authentication
+
+role — Defines user type (Host or Guest)
+
+➡️ Relationships:
+A User can list multiple Properties and make multiple Bookings.
+
+🏠 Properties
+
+id — Primary key, unique property ID
+
+title — Name or short description of the property
+
+description — Detailed property information
+
+price_per_night — Cost per night for renting
+
+host_id — Foreign key linking to the User who owns the property
+
+➡️ Relationships:
+A Property belongs to one User (Host) but can have many Bookings and Reviews.
+
+📅 Bookings
+
+id — Primary key
+
+user_id — Foreign key referencing the User who made the booking
+
+property_id — Foreign key referencing the booked Property
+
+check_in — Start date of the stay
+
+check_out — End date of the stay
+
+➡️ Relationships:
+A Booking belongs to one User and one Property.
+
+💬 Reviews
+
+id — Primary key
+
+user_id — Foreign key referencing the User who wrote the review
+
+property_id — Foreign key referencing the reviewed Property
+
+rating — Numerical rating (1–5)
+
+comment — Text feedback from the guest
+
+➡️ Relationships:
+A User can write many Reviews, and a Property can receive many Reviews.
+
+💳 Payments
+
+id — Primary key
+
+booking_id — Foreign key linking to the related Booking
+
+amount — Total amount paid
+
+payment_status — Indicates if the payment was completed, pending, or failed
+
+payment_date — Timestamp for when payment occurred
+
+➡️ Relationships:
+Each Payment is linked to one Booking.
+
+Entity Relationships Summary
+
+A User can own multiple Properties.
+
+A User can make multiple Bookings.
+
+Each Booking belongs to one User and one Property.
+
+A Property can receive multiple Reviews.
+
+Each Payment is tied to a single Booking.
+┌────────────┐          1 ──────── *           ┌────────────┐
+│   Users    │────────────────────────────────▶│ Properties │
+└────────────┘                                 └────────────┘
+      │ 1                                              │ 1
+      │                                                │
+      │ *                                              │ *
+      ▼                                                ▼
+┌────────────┐         1 ──────── *           ┌────────────┐
+│  Bookings  │────────────────────────────────▶│  Payments  │
+└────────────┘                                 └────────────┘
+      │
+      │  *
+      │
+      ▼
+┌────────────┐
+│  Reviews   │
+└────────────┘
+
 
