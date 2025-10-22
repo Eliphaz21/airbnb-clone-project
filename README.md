@@ -388,4 +388,36 @@ Cross-Origin Resource Sharing (CORS) policies restrict which domains can interac
 In production, HTTPS is used to encrypt all data in transit.
 Importance: Protects against unauthorized third-party access and ensures data integrity during transmission.
 
+----------------------------------------------------------------
+⚙️ CI/CD Pipeline
 
+A CI/CD (Continuous Integration / Continuous Deployment) pipeline automates the process of building, testing, and deploying code changes.
+It ensures that updates are delivered quickly, reliably, and safely, reducing the chance of human error and improving overall code quality.
+
+🔹 Continuous Integration (CI)
+
+Continuous Integration involves automatically building and testing the application whenever changes are pushed to the repository.
+This ensures that new code does not break existing functionality and that the application remains stable throughout development.
+
+🔹 Continuous Deployment (CD)
+
+Continuous Deployment automates the deployment of successfully tested code to staging or production environments.
+It ensures that new features and fixes reach users faster without manual intervention, maintaining a reliable workflow.
+
+🔹 Tools Used in StayBackend
+
+GitHub Actions: Automates testing and deployment whenever code is pushed or merged.
+
+Docker: Containerizes the application and its dependencies to ensure consistency across environments.
+
+Docker Compose: Orchestrates multiple services (e.g., Django backend, MySQL database) for easy local and production setups.
+
+💡 Importance for StayBackend
+
+Automates repetitive tasks like testing and deployment.
+
+Ensures consistent application behavior across different environments.
+
+Reduces human error and improves collaboration among team members.
+
+Allows faster feedback loops and quicker release of new features.
