@@ -122,6 +122,8 @@ The database supports core functionalities like user management, property listin
 │  Reviews   │
 └────────────┘
 -------------------------------------------------
+
+```
 🧩 Feature Breakdown
 👤 User Management
 
